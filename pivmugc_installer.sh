@@ -3,8 +3,9 @@
 #
 # Raspberry Pi User Group Controller Scirpt Installer
 # URL: https://github.com/tkrn/pivmugc/
-# Release Date: 2017-09-21
-# Verion: 2.3
+# Release Date: 2019-01-26
+# Version: 2.4
+# 2.4 Release Notes: Updated for Pi 3 B+ and PHP7 compatibility
 # 2.3 Release Notes: Removed compiling component, installing dymo drivers via apt-get
 # 2.2 Release Notes: Updated for Raspbian Stretch  
 
@@ -72,7 +73,7 @@ NGINX_CONF='server {
         try_files $uri /index.php?$query_string;
     }
     location ~ \.php$ {
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
@@ -103,7 +104,7 @@ echo " *** Installing required binaries... "
 apt-get -qq install lpr cups libcups2 libcupsimage2 sendmail locate -y > /var/tmp/apt-get-install-binaries-1.log
 
 echo " *** Installing required binaries... "
-apt-get -qq install nginx php5-fpm php5-sqlite printer-driver-dymo -y > /var/tmp/apt-get-install-binaries-2.log
+apt-get -qq install nginx php7.0-fpm php7.0-sqlite3 php7.0-zip php7.0-xml printer-driver-dymo -y > /var/tmp/apt-get-install-binaries-2.log
 
 echo " *** Installing required binaries... "
 apt-get -qq install unzip dnsmasq vim unzip hostapd gawk -y > /var/tmp/apt-get-install-binaries-3.log
@@ -121,7 +122,7 @@ service nginx reload
 usermod -a -G www-data pi
 
 echo " *** Applying PHP-FPM configuration..."
-service php5-fpm start
+service php7.0-fpm start
 
 echo " *** Configuring dhclient..."
 cp /etc/dhcp/dhclient.conf /etc/dhcp/dhclient.bak
