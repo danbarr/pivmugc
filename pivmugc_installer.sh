@@ -32,11 +32,7 @@ CPU=$(cat /proc/cpuinfo | awk '/Revision/ {print $3}')
 
 HWCHECK=false
 
-if [ "$CPU" = 'a02082' ]; then
-  HWCHECK=true
-fi
-
-if [ "$CPU" = 'a22082' ]; then
+if [[ "$CPU" =~ (a02082|a22082|a32082|a020d3) ]]; then
   HWCHECK=true
 fi
 
