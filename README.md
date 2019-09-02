@@ -120,6 +120,6 @@ for RAM_DISK creation above.
 
 * FPDF - v1.81
 * PHPExcel - v1.8
-* jQuery - v3.1.0
-* jQuery Notification Plugin - v2.3.8
-* jQuery Validation Plugin - v1.15.0
+* jQuery - v3.3.1
+* jQuery Notification Plugin - v2.4.1
+* jQuery Validation Plugin - v1.19.0
