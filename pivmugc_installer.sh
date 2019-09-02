@@ -13,7 +13,7 @@
 # Start Variables
 #
 
-PIVMUGCURL="https://github.com/tkrn/pivmugc/archive/master.zip"
+PIVMUGCURL="https://github.com/danbarr/pivmugc/archive/master.zip"
 
 #
 # End Variables
